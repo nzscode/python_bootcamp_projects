@@ -1,5 +1,5 @@
 # Pizza Calculator
-from pizzacalculator import pizza_calculator
+from pizza_calculator import pizza_calculator
 calculator = pizza_calculator()
 pizza_size = calculator.pizza_order()
 pizza_price = calculator.pizza_price(pizza_size)
