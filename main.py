@@ -24,18 +24,22 @@ red.shape("turtle")
 
 race_end_xcor = 200
 
-race_border.hideturtle()
-race_border.penup()
-race_border.pensize(2)
-race_border.setposition(-95, 10)
-race_border.pendown()
-race_border.forward(95 + race_end_xcor)
-race_border.setheading(270)
-race_border.forward(170)
-race_border.setheading(180)
-race_border.forward(95 + race_end_xcor)
-race_border.setheading(90)
-race_border.forward(170)
+
+def racing_field(race_distance):
+    race_border.penup()
+    race_border.pensize(2)
+    race_border.setposition(-95, 10)
+    race_border.pendown()
+    race_border.forward(95 + race_distance)
+    race_border.setheading(270)
+    race_border.forward(170)
+    race_border.setheading(180)
+    race_border.forward(95 + race_distance)
+    race_border.setheading(90)
+    race_border.forward(170)
+
+
+racing_field(race_end_xcor)
 
 violet.shape("turtle")
 blue.shape("turtle")
@@ -69,6 +73,11 @@ green.setposition(-100, -60)
 yellow.setposition(-100, -90)
 orange.setposition(-100, -120)
 red.setposition(-100, -150)
+
+
+def reset():
+    screen.reset()
+
 
 winner = ""
 continue_race = True
