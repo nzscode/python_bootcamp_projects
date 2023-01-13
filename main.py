@@ -1,64 +1,42 @@
-import time
-from turtle import Turtle, Screen
-import random
+from turtle import Screen
+from scoreboard import Scoreboard
+from midline import Midline
+from paddles import Paddle
+from ball import Ball
+
 
 screen = Screen()
-screen.setup(width=600, height=600)
 screen.bgcolor("black")
-screen.title("Snakeyyyyy")
-screen.tracer(0)
+screen.screensize(canvwidth=800, canvheight=400)
 
+scoreboard_right = Scoreboard()
+scoreboard_right.goto(100, 0)
+midline = Midline()
+midline.midline_dash()
+screen.listen()
+paddle_left = Paddle()
+paddle_left.paddle_left()
+paddle_right = Paddle()
+paddle_right.paddle_right()
+ball = Ball()
+game_on = True
 
-snake_segments = []
+screen.onkey(paddle_left.paddle_left_up, "w")
+screen.onkey(paddle_left.paddle_left_down, "s")
+screen.onkey(paddle_right.paddle_right_up, "Up")
+screen.onkey(paddle_right.paddle_right_down, "Down")
 
-for _ in range(3):
-    new_segment = Turtle()
-    new_segment.penup()
-    new_segment.color("white")
-    new_segment.shape("square")
-    new_segment.speed("fastest")
-    x_pos = -20 * len(snake_segments)
-    new_segment.setposition(x_pos, 0)
-    snake_segments.append(new_segment)
-
-game_over = False
-
-
-def left():
-    new_heading = snake_segments[0].heading() + 90
-    snake_segments[0].setheading(new_heading)
-
-
-def right():
-    new_heading = snake_segments[0].heading() - 90
-    snake_segments[0].setheading(new_heading)
-
-
-while not game_over:
-    screen.update()
-    time.sleep(0.1)
-    for seg_index in range(len(snake_segments) - 1, 0, -1):
-        previous_seg_x = snake_segments[seg_index - 1].xcor()
-        previous_seg_y = snake_segments[seg_index - 1].ycor()
-        snake_segments[seg_index].setposition(previous_seg_x, previous_seg_y)
-
-    screen.listen()
-    snake_segments[0].forward(20)
-
-    screen.onkey(left, "a")
-    screen.onkey(right, "d")
-
-
-
-
-
-
-
-
-
-
-
-
+# while game_on:
+#     ball_position = [ball.xcor(), ball.ycor()]
+#     if ball.xcor() < -300:
+#         scoreboard_left.score += 1
+#         game_on = False
+#     elif ball.xcor() > 300:
+#         scoreboard_right.score += 1
+#         game_on = False
+#     elif ball.distance(paddle_left) < 5 or ball.distance(paddle_right) < 5:
+#         pass
+#         #ball bounces back
 
 
 
