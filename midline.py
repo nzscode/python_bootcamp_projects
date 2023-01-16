@@ -1,6 +1,5 @@
 from turtle import Turtle
 
-MID_LINE_LENGTH = 400
 DASH_LENGTH = 10
 
 
@@ -9,8 +8,9 @@ class Midline(Turtle):
         super().__init__()
         self.hideturtle()
         self.penup()
-        self.goto(0, -400)
+        self.goto(0, -300)
         self.color("white")
+        self.speed("fastest")
         self.pensize(5)
 
     def midline_dash(self):
