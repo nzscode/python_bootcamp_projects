@@ -1,3 +1,4 @@
+import time
 from turtle import Screen
 from scoreboard import ScoreboardRight,ScoreboardLeft
 from midline import Midline
@@ -29,8 +30,15 @@ screen.onkey(paddle_right.paddle_up, "Up")
 screen.onkey(paddle_right.paddle_down, "Down")
 
 while game_on:
+    time.sleep(0.1)
     screen.update()
-    screen.onkey(ball.start_angle, "c")
+    ball.move_ball()
+    if paddle_left.distance(ball) > 5 and ball.xcor() > 300 and ball.ycor() < 250 or ball.ycor() > -250:
+        scoreboard_left.score += 1
+    elif paddle_right.distance(ball) > 5 and ball.xcor() > -300 and ball.ycor() < 250 or ball.ycor() > -250:
+        scoreboard_right.score += 1
+
+
 
 #     ball_position = [ball.xcor(), ball.ycor()]
 #     if ball.xcor() < -300:
