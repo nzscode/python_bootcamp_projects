@@ -1,10 +1,10 @@
 import time
 from turtle import Screen
-from scoreboard import ScoreboardRight,ScoreboardLeft
+from scoreboard import ScoreboardRight, ScoreboardLeft
 from midline import Midline
 from paddles import Paddle
 from ball import Ball
-
+from bounce_borders import Border
 
 screen = Screen()
 screen.bgcolor("black")
@@ -16,6 +16,8 @@ scoreboard_right = ScoreboardRight()
 scoreboard_left = ScoreboardLeft()
 midline = Midline()
 midline.midline_dash()
+border_top = Border(-395, 298, 395, 298)
+border_bottom = Border(-395, -290, 395, -290)
 screen.listen()
 paddle_left = Paddle()
 paddle_left.paddle_start_position(-350, 0)
@@ -38,20 +40,8 @@ while game_on:
     elif paddle_right.distance(ball) > 5 and ball.xcor() > -300 and ball.ycor() < 250 or ball.ycor() > -250:
         scoreboard_right.score += 1
 
-
-
-#     ball_position = [ball.xcor(), ball.ycor()]
-#     if ball.xcor() < -300:
-#         scoreboard_left.score += 1
-#         game_on = False
-#     elif ball.xcor() > 300:
-#         scoreboard_right.score += 1
-#         game_on = False
-#     elif ball.distance(paddle_left) < 5 or ball.distance(paddle_right) < 5:
-#         pass
-#         #ball bounces back
-
-
-
+    if ball.ycor() > 298 and ball.xcor() > 0:
+        ball.setheading(275)
+        ball.move_ball()
 
 screen.exitonclick()
