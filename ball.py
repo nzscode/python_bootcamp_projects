@@ -1,9 +1,6 @@
 from turtle import Turtle
 import random
-
 STRETCH_FACTOR = 1
-ANGLES = [45, 135, 225, 315]
-CORNERS = [[350, 250], [-350, 250], [-350, -350], [350, -350]]
 
 
 class Ball(Turtle):
@@ -13,19 +10,16 @@ class Ball(Turtle):
         self.color("white")
         self.shapesize(stretch_wid=STRETCH_FACTOR, stretch_len=STRETCH_FACTOR)
         self.penup()
-
+        self.x_move = random.choice([10, -10])
+        self.y_move = random.choice([10, -10])
 
     def move_ball(self):
-        # new_angle = random.choice(ANGLES)
-        # if new_angle in ANGLES:
-        #     angle_index = ANGLES.index(new_angle)
-        #     new_corner = CORNERS[angle_index]
-        #     print(new_corner)
-        #     self.setheading(new_angle)
-        #     self.goto(new_corner[0], new_corner[1])
-        #     self.speed(0.1)
-        self.speed("slowest")
-        new_x = self.xcor() + 10
-        new_y = self.ycor() + 10
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
         self.goto(new_x, new_y)
-            
+
+    def bounce_y(self):
+        self.y_move *= -1
+
+    def bounce_x(self):
+        self.x_move *= -1
