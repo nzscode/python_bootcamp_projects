@@ -1,9 +1,8 @@
-import random
 import time
 from turtle import Screen
-from player import Player
-from car_manager import CarManager
-from scoreboard import Scoreboard
+from Turtle_Crossing.player import Player
+from Turtle_Crossing.car_manager import CarManager
+from Snake_Game_With_High_Score.scoreboard import Scoreboard
 
 screen = Screen()
 screen.setup(width=600, height=600)
