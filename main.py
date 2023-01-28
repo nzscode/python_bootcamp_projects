@@ -1,6 +1,6 @@
 # with open("weather_data.csv") as data_file:
 #     data = data_file.readlines()
-
+import pandas
 # import csv
 #
 # with open("weather_data.csv") as data_file:
@@ -13,4 +13,9 @@
 
 import pandas as pd
 
+# data = pandas.read_csv("weather_data.csv")
+# print(data["temp"])
 
+fish = {"Salmon", "Tuna", "Mackerel", "Anchovy", "Sardine"}
+fish.discard("Tuna")
+print(fish)
