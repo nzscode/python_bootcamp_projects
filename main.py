@@ -11,11 +11,13 @@ import pandas
 #             temperatures.append(int(row[1]))
 #     print(temperatures)
 
-import pandas as pd
+import pandas
 
-# data = pandas.read_csv("weather_data.csv")
+data = pandas.read_csv("weather_data.csv")
 # print(data["temp"])
 
-fish = {"Salmon", "Tuna", "Mackerel", "Anchovy", "Sardine"}
-fish.discard("Tuna")
-print(fish)
+data_dict = data.to_dict()
+print(data_dict)
+data_list = data["temp"].to_list()
+max = data["temp"].max()
+print(max)
