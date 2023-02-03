@@ -1,23 +1,17 @@
 import turtle
 from turtle import Turtle, Screen
+from US_States_Naming_Game.scoreboard import Scoreboard
 import pandas
 
 screen = Screen()
 screen.title("U.S. States Naming Game")
-
-
 image = "US_States_Naming_Game/blank_states_img.gif"
 screen.addshape(image)
 turtle.shape(image)
 data = pandas.read_csv("US_States_Naming_Game/50_states.csv")
 state_name_list = data["state"].to_list()
 input_list = []
-scoreboard = Turtle()
-scoreboard.penup()
-scoreboard.hideturtle()
-score = 0
-scoreboard.goto(0, 350)
-scoreboard.write(f"Score: {score}/50", align="center", font=("Courier", 30, "bold"))
+scoreboard = Scoreboard()
 new_state_dict = {
     "state name": []
 }
@@ -27,20 +21,18 @@ game_over = False
 while not game_over:
     answer_state = screen.textinput("State Input: ", "Name a State: ").title()
     state = data[data.state == answer_state]
-    new_x = state.x
-    new_y = state.y
 
     if answer_state in state_name_list:
         if answer_state not in input_list:
             new_turtle = Turtle()
             new_turtle.hideturtle()
             new_turtle.penup()
-            new_turtle.goto(float(new_x), float(new_y))
+            new_turtle.goto(float(state.x), float(state.y))
             new_turtle.write(answer_state, font=("Courier", 8, "bold"))
-            score += 1
+            scoreboard.score += 1
             input_list.append(answer_state)
             scoreboard.clear()
-            scoreboard.write(f"Score: {score}/50",
+            scoreboard.write(f"Score: {scoreboard.score}/50",
                              align="center", font=("Courier", 30, "bold"))
         elif answer_state in input_list:
             pass
