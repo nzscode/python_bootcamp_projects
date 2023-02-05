@@ -37,28 +37,18 @@ while not game_over:
         elif answer_state in input_list:
             pass
 
-    # if answer_state == "Exit":
-    #     for state in data.state:
-    #         if state not in input_list:
-    #             for state in data.state if answer_state == "Exit" if state not in input_list
-    #             final_turtle = Turtle()
-    #             final_turtle.hideturtle()
-    #             final_turtle.penup()
-    #             final_turtle.color("red")
-    #             missing_state = data[data.state == state]
-    #             final_turtle.goto(float(missing_state.x), float(missing_state.y))
-    #             final_turtle.write(state, font=("Courier", 8, "bold"))
-    #             new_state_dict["state name"].append(state)
-    #             game_over = True
-
-        if answer_state == "Exit":
-            missing_state = data[data.state == [state for state in data.state if state not in input_list]]
-            final_turtle = Turtle()
-            final_turtle.hideturtle()
-            final_turtle.penup()
-            final_turtle.color("red")
-            new_state_dict["state name"].append(state)
-            game_over = True
+    if answer_state == "Exit":
+        for state in data.state:
+            if state not in input_list:
+                final_turtle = Turtle()
+                final_turtle.hideturtle()
+                final_turtle.penup()
+                final_turtle.color("red")
+                missing_state = data[data.state == state]
+                final_turtle.goto(float(missing_state.x), float(missing_state.y))
+                final_turtle.write(state, font=("Courier", 8, "bold"))
+                new_state_dict["state name"].append(state)
+                game_over = True
 
 df = pandas.DataFrame(new_state_dict)
 df.to_csv("missed_states.csv")
