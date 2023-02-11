@@ -7,7 +7,9 @@ window.minsize(300, 100)
 ## Label
 my_label = tkinter.Label(text="I am a label.", font=("Courier", 20, "bold"))
 my_label.pack()
-my_label
+
+def add(*n):
+    return n
 
 
 
