@@ -8,8 +8,7 @@ window.minsize(300, 100)
 my_label = tkinter.Label(text="I am a label.", font=("Courier", 20, "bold"))
 my_label.pack()
 
-def add(*n):
-    return n
+
 
 
 
