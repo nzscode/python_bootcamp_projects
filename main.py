@@ -17,6 +17,7 @@ us_input1.pack()
 us_label2 = Label(text="Please enter the 2nd number below:")
 us_label2.pack()
 us_input2 = Entry()
+us_input2.pack()
 
 def calculate():
     user_input1 = us_input1.get()
