@@ -63,3 +63,9 @@ while keep_translating:
     #     print("Please choose a valid answer: ")
 
 # nato_data = pandas.DataFrame("na")
+word = input("What is your word? \n")
+char = [char for char in word]
+
+for (index, row) in nato_alphas.iterrows():
+    if row.letter == char:
+        print(row.code)
