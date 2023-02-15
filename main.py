@@ -18,9 +18,12 @@ LONG_BREAK_MIN = 20
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Pomodoro")
-window.minsize(300, 300)
-
-
+window.config(padx=100, pady=50, bg="#FCFFE7")
+canvas = Canvas(width=200, height=230, bg="#FCFFE7", highlightthickness=0)
+tomato_img = PhotoImage(file="tomato.png")
+canvas.create_image(100, 115, image=tomato_img)
+canvas.create_text(100, 135, text="00:00", font=(FONT_NAME, 30, "bold"), fill="white")
+canvas.pack()
 
 
 
