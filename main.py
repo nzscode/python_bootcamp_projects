@@ -1,51 +1,49 @@
 from tkinter import *
 window = Tk()
+FONT = ("Courier", 8, "bold")
 
-window.title("Test 1")
-window.minsize(300, 100)
+window.title("Converter")
+window.minsize(100, 100)
+window.config(padx=20, pady=20)
 
-##Label
-my_label = Label(text="Result will go here.", font=("Courier", 18, "bold"))
-my_label.pack()
+label1 = Label(text="Unit", font=FONT)
+label1.grid(row=2, column=2)
 
-## Entry
-us_label1 = Label(text="Please enter the 1st number below:")
-us_label1.pack()
-us_input1 = Entry()
-us_input1.pack()
+input1 = Entry(width=7)
+input1.grid(row=2, column=1)
 
-us_label2 = Label(text="Please enter the 2nd number below:")
-us_label2.pack()
-us_input2 = Entry()
-us_input2.pack()
+label2 = Label(text="is equal to", font=FONT)
+label2.grid(row=3, column=0)
+
+label3 = Label(text="0", font=FONT, width=7)
+label3.grid(row=3, column=1)
+
+label4 = Label(text="Unit", font=FONT)
+label4.grid(row=3, column=2)
+
 
 def calculate():
-    user_input1 = us_input1.get()
-    user_input2 = us_input2.get()
-    print(radio_state)
+    in_1 = input1.get()
     if radio_state.get() == 1:
-        result = int(user_input1) + int(user_input2)
-        my_label.config(text=result)
+        label1.config(text="Miles")
+        label4.config(text="Km")
+        miles_to_km = round(float(in_1) * 1.609344, 2)
+        label3.config(text= miles_to_km)
     elif radio_state.get() == 2:
-        result = int(user_input1) - int(user_input2)
-        my_label.config(text=result)
-    elif radio_state.get() == 3:
-        result = int(user_input1) * int(user_input2)
-        my_label.config(text=result)
-    else:
-        result = int(user_input1) / int(user_input2)
-        my_label.config(text=result)
+        label1.config(text="Km")
+        label4.config(text="Miles")
+        km_to_miles = round(float(in_1) * 0.62137119, 2)
+        label3.config(text=km_to_miles)
 
+
+button1 = Button(text="Calculate", command=calculate, font=FONT)
+button1.grid(row=4, column=1)
 
 radio_state = IntVar()
-radiobutton_add = Radiobutton(text="+ or add", value=1, variable=radio_state, command=calculate)
-radiobutton_add.pack()
-radiobutton_minus = Radiobutton(text="- or subtract", value=2, variable=radio_state, command=calculate)
-radiobutton_minus.pack()
-radiobutton_multiply = Radiobutton(text="* or multiply", value=3, variable=radio_state, command=calculate)
-radiobutton_multiply.pack()
-radiobutton_divide = Radiobutton(text="/ or divide", value=4, variable=radio_state, command=calculate)
-radiobutton_divide.pack()
+radiobutton_Miles_To_Km = Radiobutton(text="Miles to KM", value=1, variable=radio_state, command=calculate)
+radiobutton_Miles_To_Km.grid(row=0, column=1, rowspan=1, columnspan=2, sticky="nwse")
+radiobutton_Km_To_Miles = Radiobutton(text="Km to Miles", value=2, variable=radio_state, command=calculate)
+radiobutton_Km_To_Miles.grid(row=1, column=1, rowspan=1, columnspan=2, sticky="nwse")
 
 
 
