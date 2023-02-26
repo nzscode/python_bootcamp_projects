@@ -1,7 +1,5 @@
-def isSameNum(num1, num2) {
-	if num1 == num2:
-		return True
-	else:
-		return False
-}
+def color_invert(r,g,b):
+	print(b,g,r)
 
+
+color_invert(165, 172, 119)
