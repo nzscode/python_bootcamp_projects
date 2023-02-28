@@ -46,7 +46,7 @@ main_window.title("Password Manager")
 main_window.config(padx=20, pady=20)
 
 image_canvas = Canvas(width=200, height=200)
-my_pass_image = PhotoImage(file="Password_Maker_Saver/logo.png")
+my_pass_image = PhotoImage(file="logo.png")
 image_canvas.create_image(125, 100, image=my_pass_image)
 image_canvas.grid(row=0, column=1)
 
