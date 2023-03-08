@@ -16,7 +16,7 @@ window.title("Flash Cards")
 window.minsize(width=1000, height=800)
 window.config(pady=50, padx=50, bg=BACKGROUND_COLOR)
 
-
+chosen_word = ""
 def new_card():
     rand_dict = random.choice(fr_eng_dict)
     rand_dict_fr_word = rand_dict["French"]
@@ -24,9 +24,13 @@ def new_card():
     canvas.itemconfig(card_title, text="French")
     canvas.itemconfig(card_word, text=rand_dict_fr_word)
 
+def card_flip():
 
 
 
+
+
+window.after(3000, card_flip)
 canvas = Canvas(width=900, height=600, bg=BACKGROUND_COLOR, highlightthickness=0)
 front_card_img = PhotoImage(file="card_front.png")
 canvas.create_image(450, 300, image=front_card_img)
