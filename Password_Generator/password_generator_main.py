@@ -13,7 +13,7 @@ rand_numbers = random.randint(2, 4)
 password_list = []
 
 for char in range(rand_letters):
-    password_list.append(random.choice(letters))
+    password_list += (random.choice(letters))
 
 for char in range(rand_symbols):
     password_list += random.choice(symbols)

@@ -1,6 +1,6 @@
 import random
-from Hangman.Hangman_stages import stages
-from Hangman.Hangman_words import word_list
+from Hangman.hangman_stages import stages
+from Hangman.hangman_words import word_list
 
 word = random.choice(word_list)
 word = word.upper()
