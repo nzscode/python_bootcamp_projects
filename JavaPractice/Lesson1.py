@@ -1,0 +1,10 @@
+print("Printing: Lesson 1.")
+print("Printing is fun!\nPython > Java. I found a Python on my paper.\nMy Python ate my dog.")
+
+print("Printing: Lesson 2.")
+print("N   N  ZZZZZ")
+print("NN  N     Z ")
+print("N N N    Z  ")
+print("N   N   Z   ")
+print("N   N  Z    ")
+print("N   N  ZZZZZ")
