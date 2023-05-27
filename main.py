@@ -1,30 +1,21 @@
-student = {
-    "Name": "Jane",
-    "Age": 19,
-    "Courses": ["Math", "English"],
-}
-
-print(student) #Accessing dictionary
-print(student["Name"]) # Accessing value of the key "Name"
-# print(student["Hobbies"]) #Throws key error
-student["phone"] = "111-222-3333" #Adding new key:value pair to dictionary
-student["Age"] = 27 #Updates value
-# student.update({"Name": "Janet", "Age": 15, "Courses": ["French"]}) #Updates multiple key/vaue pairs
-del student["Age"] #Deletes a key and it's value
-# newCourse = student.pop("Courses") Removes key and saves it in new variable
-print(student.values()) #Returns the values only
-print(student.keys()) # Returns the keys only
-print(student.items()) # Returns key/Value pairs
-
-#To loop through keys
-for key in student:
-    print(key)
-
-#To loop through keys
-for key, value in student.items():
-    print(f"{key} : {value}")
-print(15+5+(3*2)/4**2+(3-7)*7)
+def counter(start, stop):
+    if start > stop:
+        return_string = "Counting down: "
+        while start != stop: # Complete the while loop
+            return_string += str(start) # Add the numbers to the "return_string"
+            if start > stop:
+                return_string += ","
+            start- 1 # Increment the appropriate variable
+    else:
+        return_string = "Counting up: "
+        while start != stop: # Complete the while loop
+            return_string += str(start) # Add the numbers to the "return_string"
+            if start < stop:
+                return_string += ","
+            start += 1 # Increment the appropriate variable
+    return return_string
 
 
-
-
+print(counter(1, 10)) # Should be "Counting up: 1,2,3,4,5,6,7,8,9,10"
+print(counter(2, 1)) # Should be "Counting down: 2,1"
+print(counter(5, 5)) # Should be "Counting up: 5"
