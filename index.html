@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet"
+        />
+        <title>Python Bootcamp Projects</title>
+    </head>
+    <body>
+        <!-- NAVIGATION MENU - SIDE OPEN -->
+        <header>
+            <div id="title-bar-backing"></div>
+            <h1 id="title-bar">
+                <span
+                    id="nav-hamburger"
+                    style="cursor: pointer"
+                    onclick="openNav()"
+                    >&#9776;</span
+                >
+                <span id="page-title">Block Level Elements</span>
+            </h1>
+            <div id="mySidenav" class="sidenav">
+                <a
+                    href="javascript:void(0)"
+                    class="closebtn"
+                    onclick="closeNav()"
+                    >&times;</a
+                >
+                <!-- Nav Menu Items -->
+                <nav id="nav"></nav>
+                <div class="space-block"></div>
+            </div>
+        </header>
+        <main>
+            <article>
+                <section>
+                    <h2 class="lvl2" id="band-name-generator">
+                        Band Name Generator
+                    </h2>
+                    <div class="outer-table">
+                        <div class="head-row-full">
+                            <div class="cell-header">main.py</div>
+                        </div>
+                        <div class="body-row-full">
+                            <div class="cells">
+                                <pre><code># Creates a band name.
+from band_name_generator import NameGenerator
+new_name = NameGenerator()
+new_name.generate_name()
+</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outer-table">
+                        <div class="head-row-full">
+                            <div class="cell-header">
+                                band-name-generator.py
+                            </div>
+                        </div>
+                        <div class="body-row-full">
+                            <div class="cells">
+                                <pre><code>class NameGenerator:
+def __init__(self):
+    """Prints the welcome"""
+    print("Welcome to the Band Name Generator")
+
+def generate_name(self):
+    """Asks for the city and pet name and generates a aband name from it."""
+    city = input("What city did you grow up in?\n  ")
+    pet = input("What was the name of your first pet?  \n  ")
+    band_name = city + pet
+    print(f"You new band name is: {band_name}")</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2 class="lvl2" id="banker-roulette">Banker Roulette</h2>
+                    <div class="outer-table">
+                        <div class="head-row-full">
+                            <div class="cell-header">main.py</div>
+                        </div>
+                        <div class="body-row-full">
+                            <div class="cells">
+                                <pre><code># Banker Roulette
+from banker_roulette import Roulette
+banker = Roulette()
+banker.PickAName()</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outer-table">
+                        <div class="head-row-full">
+                            <div class="cell-header">banker-roulette.py</div>
+                        </div>
+                        <div class="body-row-full">
+                            <div class="cells">
+                                <pre><code>import random
+
+
+class Roulette:
+    def __init__(self):
+        print("Welcome to banker roulette")
+
+    def PickAName(self):
+        names_input = input("Please enter names separated by a comma and space.")
+        names = names_input.split(", ")
+        r_num = random.randint(0, len(names)-1)
+        print(names[r_num])</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </main>
+        <footer></footer>
+        <script src="./nav-menu.js"></script>
+    </body>
+</html>
